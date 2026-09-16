@@ -33,11 +33,18 @@ export function SectionHeading({ kicker, title, desc, action }: { kicker: string
 }
 
 export function Marquee({ items }: { items: string[] }) {
-  const row = [...items, ...items];
+  const row = [...items, ...items, ...items];
   return (
-    <div className="overflow-hidden border-y border-white/10 py-4 bg-white/[0.02]">
-      <div className="flex gap-8 w-max animate-marquee whitespace-nowrap text-sm text-zinc-300">
-        {row.map((t, i) => <span key={i} className="flex items-center gap-8"><span className="text-neon">✦</span>{t}</span>)}
+    <div className="relative overflow-hidden border-y border-white/10 bg-white/[0.04] py-6 md:py-7">
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 md:w-40 bg-gradient-to-r from-void to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 md:w-40 bg-gradient-to-l from-void to-transparent z-10" />
+      <div className="flex gap-10 md:gap-14 w-max animate-marquee whitespace-nowrap font-mono text-sm md:text-base font-semibold tracking-widest uppercase text-zinc-200 [animation-duration:42s] hover:[animation-play-state:paused]">
+        {row.map((t, i) => (
+          <span key={i} className="flex items-center gap-10 md:gap-14">
+            <span className="grid h-7 w-7 place-items-center rounded-full bg-white/5 border border-white/10 text-neon text-xs">✦</span>
+            <span className="text-zinc-100">{t}</span>
+          </span>
+        ))}
       </div>
     </div>
   );
