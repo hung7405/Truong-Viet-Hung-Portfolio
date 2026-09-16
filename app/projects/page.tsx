@@ -10,7 +10,7 @@ export default function ProjectsPage() {
   const [cat, setCat] = useState("all");
   const list = projects.filter((p) => cat === "all" || p.category === cat);
   return (
-    <div className="pt-28 mx-auto max-w-6xl px-4 pb-10">
+    <div className="pt-28 mx-auto max-w-[1440px] px-6 lg:px-8 pb-10">
       <SectionHeading kicker="~/projects" title="Systems, not demos"
         desc="3 production-style systems from Payoo + personal builds. Filter by track." />
       <div className="mt-6 flex flex-wrap gap-2">

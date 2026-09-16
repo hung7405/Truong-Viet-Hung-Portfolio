@@ -5,7 +5,7 @@ export const metadata = { title: "About — Truong Viet Hung" };
 
 export default function About() {
   return (
-    <div className="pt-28 mx-auto max-w-6xl px-4 pb-10">
+    <div className="pt-28 mx-auto max-w-[1440px] px-6 lg:px-8 pb-10">
       <SectionHeading kicker="$ whoami" title="Production-oriented AI engineer"
         desc={profile.tagline} />
       <div className="mt-8 grid lg:grid-cols-5 gap-4">

@@ -26,7 +26,7 @@ const badgeItem = {
 export default function Home() {
   return (
     <div className="pt-24">
-      <section className="relative mx-auto max-w-6xl px-4 pb-10 overflow-hidden">
+      <section className="relative mx-auto max-w-[1440px] px-6 lg:px-8 pb-10 overflow-hidden">
         <motion.div className="orb h-72 w-72 bg-neon/40 -top-10 -left-10" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }} />
         <motion.div className="orb h-80 w-80 bg-violet2/40 top-20 right-0" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 1.2, delay: 0.15, ease: [0.22, 1, 0.36, 1] }} />
         <div className="grid lg:grid-cols-2 gap-6 items-center">
@@ -50,7 +50,7 @@ export default function Home() {
               </span>
             </motion.h1>
 
-            <motion.p variants={heroItem} className="mt-4 text-zinc-400 leading-relaxed">
+            <motion.p variants={heroItem} className="mt-4 text-zinc-600 leading-relaxed">
               {profile.tagline}
             </motion.p>
 
@@ -90,7 +90,7 @@ export default function Home() {
               <ErrorBoundary>
                 <Hero3D />
               </ErrorBoundary>
-              <div className="flex items-center justify-between px-5 py-3 border-t border-white/10 font-mono text-[11px] text-zinc-500">
+              <div className="flex items-center justify-between px-5 py-3 border-t border-zinc-200 font-mono text-[11px] text-zinc-500">
                 <span>● agent.mesh — live</span>
                 <span>60fps · webgl</span>
               </div>
@@ -107,7 +107,7 @@ export default function Home() {
               <div className="glass card-hover rounded-2xl p-5 relative overflow-hidden h-full">
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neon/60 to-transparent" />
                 <p className="text-xl md:text-2xl font-bold text-gradient font-mono">{m.value}</p>
-                <p className="text-xs text-zinc-400 mt-1.5 leading-relaxed">{m.label}</p>
+                <p className="text-xs text-zinc-600 mt-1.5 leading-relaxed">{m.label}</p>
               </div>
             </motion.div>
           ))}
@@ -116,7 +116,7 @@ export default function Home() {
 
       <Marquee items={["Agentic AI", "Enterprise RAG", "FastAPI", "pgvector/HNSW", "Playwright automation", "PostgreSQL + Redis", "Docker + AWS EC2", "LangChain"]} />
 
-      <section className="mx-auto max-w-6xl px-4 py-16">
+      <section className="mx-auto max-w-[1440px] px-6 lg:px-8 py-16">
         <SectionHeading
           kicker="Flagship · Payoo"
           title="Merchant multi-agent validation"
@@ -129,7 +129,7 @@ export default function Home() {
               <div className="orb h-40 w-40 bg-neon/30 -top-10 -right-10" />
               <p className="font-mono text-[11px] text-zinc-500">IMPACT</p>
               <p className="text-4xl font-bold text-gradient mt-2 font-mono">~8× faster</p>
-              <p className="text-sm text-zinc-400 mt-2">2–3 hours → 15–20 minutes per merchant via parallel evidence agents + structured cross-checks.</p>
+              <p className="text-sm text-zinc-600 mt-2">2–3 hours → 15–20 minutes per merchant via parallel evidence agents + structured cross-checks.</p>
               <div className="mt-4 flex flex-wrap gap-1.5">
                 {["4 parallel agents", "Async ARQ", "Fallback-safe"].map((t) => <TechBadge key={t} t={t} />)}
               </div>
@@ -147,9 +147,9 @@ export default function Home() {
                   ["Registry + Social", "Search APIs + verification"],
                   ["Trust synthesis", "Grounded report + score"],
                 ].map(([t, d]) => (
-                  <div key={t} className="bg-white/[0.03] border border-white/10 rounded-xl p-4">
+                  <div key={t} className="bg-white border border-zinc-200 shadow-sm rounded-xl p-4">
                     <p className="font-semibold text-[13px]">{t}</p>
-                    <p className="text-xs text-zinc-400 mt-1">{d}</p>
+                    <p className="text-xs text-zinc-600 mt-1">{d}</p>
                   </div>
                 ))}
               </div>
@@ -162,14 +162,14 @@ export default function Home() {
               <div className="glass card-hover rounded-2xl p-5">
                 <c.icon size={20} className="text-neon" />
                 <p className="font-semibold text-sm mt-3">{c.t}</p>
-                <p className="text-xs text-zinc-400 mt-1.5 leading-relaxed">{c.d}</p>
+                <p className="text-xs text-zinc-600 mt-1.5 leading-relaxed">{c.d}</p>
               </div>
             </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-6">
+      <section className="mx-auto max-w-[1440px] px-6 lg:px-8 py-6">
         <SectionHeading
           kicker="Selected systems"
           title="Projects with receipts"
@@ -189,7 +189,7 @@ export default function Home() {
                 <div className="p-5">
                   <p className="text-[11px] font-mono uppercase tracking-widest text-zinc-500">{p.org} · {p.category}</p>
                   <h3 className="font-bold mt-1 leading-snug">{p.title}</h3>
-                  <p className="text-[13px] text-zinc-400 mt-2 line-clamp-2 leading-relaxed">{p.description}</p>
+                  <p className="text-[13px] text-zinc-600 mt-2 line-clamp-2 leading-relaxed">{p.description}</p>
                   <div className="flex flex-wrap gap-1.5 mt-3">{p.tech.slice(0, 4).map((t) => <TechBadge key={t} t={t} />)}</div>
                 </div>
               </Link>
@@ -198,7 +198,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16">
+      <section className="mx-auto max-w-[1440px] px-6 lg:px-8 py-16">
         <SectionHeading kicker="Production stack" title="Backend-grade AI engineering" action={<Link href="/skills" className="text-sm text-neon hover:underline flex items-center gap-1">Full matrix <ArrowUpRight size={15} /></Link>} />
         <div className="mt-8 grid md:grid-cols-3 gap-4">
           {[
@@ -211,7 +211,7 @@ export default function Home() {
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-magenta/60 to-transparent" />
                 <c.icon className="text-neon" size={22} />
                 <h3 className="font-bold mt-3">{c.t}</h3>
-                <p className="text-[13px] text-zinc-400 mt-2 leading-relaxed">{c.d}</p>
+                <p className="text-[13px] text-zinc-600 mt-2 leading-relaxed">{c.d}</p>
               </div>
             </Reveal>
           ))}
@@ -223,7 +223,7 @@ export default function Home() {
               <p className="font-bold mt-1">{education.degree}</p>
               <p className="text-sm text-neon">{education.school}</p>
               <p className="text-xs text-zinc-500 mt-1 font-mono">{education.period}</p>
-              <p className="text-xs text-zinc-400 mt-2">{education.languages} · {education.certs[0]}</p>
+              <p className="text-xs text-zinc-600 mt-2">{education.languages} · {education.certs[0]}</p>
             </div>
             <div className="flex flex-wrap gap-1.5">
               {education.coursework.map((c) => <TechBadge key={c} t={c} />)}
@@ -233,14 +233,14 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-4">
+      <section className="mx-auto max-w-[1440px] px-6 lg:px-8 pb-4">
         <Reveal>
           <div className="glass rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
             <div className="orb h-56 w-56 bg-neon/30 -top-10 left-1/4" />
             <div className="orb h-56 w-56 bg-magenta/25 bottom-0 right-1/4" />
             <p className="font-mono text-xs text-neon">~/hire</p>
             <h3 className="text-2xl md:text-4xl font-bold mt-2">Need AI that survives production?</h3>
-            <p className="text-zinc-400 mt-2 text-sm md:text-base">Agents, RAG, FastAPI backends — designed for latency, fallbacks & operability.</p>
+            <p className="text-zinc-600 mt-2 text-sm md:text-base">Agents, RAG, FastAPI backends — designed for latency, fallbacks & operability.</p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <a href={`mailto:${profile.email}`} className="rounded-xl bg-white text-black px-6 py-3 text-sm font-semibold hover:bg-neon transition">
                 Get In Touch

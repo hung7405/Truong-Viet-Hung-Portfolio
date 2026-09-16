@@ -6,7 +6,7 @@ export const metadata = { title: "Experience — Truong Viet Hung" };
 export default function ExperiencePage() {
   const e = experience[0];
   return (
-    <div className="pt-28 mx-auto max-w-4xl px-4 pb-10">
+    <div className="pt-28 mx-auto max-w-[1440px] px-6 lg:px-8 pb-10">
       <SectionHeading kicker="~/experience" title="Payoo — AI Engineer Intern"
         desc="Apr 2026 — Present · Ho Chi Minh City. No freelance filler — one real internship, three real initiatives." />
       <div className="mt-8">

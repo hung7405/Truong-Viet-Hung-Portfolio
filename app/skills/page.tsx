@@ -5,7 +5,7 @@ export const metadata = { title: "Skills — Truong Viet Hung" };
 
 export default function SkillsPage() {
   return (
-    <div className="pt-28 mx-auto max-w-6xl px-4 pb-10">
+    <div className="pt-28 mx-auto max-w-[1440px] px-6 lg:px-8 pb-10">
       <SectionHeading kicker="~/skills" title="Stack from your CV, zero filler"
         desc="Exactly what you listed: Python/SQL/TS, LLMs+RAG+agents, FastAPI+Postgres+Redis, Docker+EC2+Playwright." />
       <div className="mt-8 grid md:grid-cols-2 gap-4">

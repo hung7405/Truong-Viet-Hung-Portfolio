@@ -7,7 +7,7 @@ import { SectionHeading, Reveal } from "@/components/ui";
 export default function ContactPage() {
   const [sent, setSent] = useState(false);
   return (
-    <div className="pt-28 mx-auto max-w-6xl px-4 pb-10">
+    <div className="pt-28 mx-auto max-w-[1440px] px-6 lg:px-8 pb-10">
       <SectionHeading kicker="~/contact" title="Let's ship production AI"
         desc="AI Engineer Intern @ Payoo · HCMC. Fastest via email — replies within 24h." />
       <div className="mt-8 grid md:grid-cols-2 gap-4">

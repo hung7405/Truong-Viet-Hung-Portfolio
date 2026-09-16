@@ -6,7 +6,7 @@ export const metadata = { title: `CV — ${profile.name}` };
 
 export default function CVPage() {
   return (
-    <div className="pt-28 mx-auto max-w-3xl px-4 pb-10">
+    <div className="pt-28 mx-auto max-w-[900px] px-6 lg:px-8 pb-10">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h1 className="text-3xl md:text-4xl font-bold">{profile.name}</h1>

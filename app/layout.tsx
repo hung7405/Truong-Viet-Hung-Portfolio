@@ -6,15 +6,15 @@ import CustomCursor from "@/components/CustomCursor";
 import IntroLoader from "@/components/IntroLoader";
 
 export const metadata: Metadata = {
-  title: "Truong Viet Hung — AI Engineer @ Payoo",
+  title: "Truong Viet Hung — AI Engineer",
   description:
-    "Final-year Data Science @ Swinburne × AI Engineer Intern @ Payoo. Multi-agent automation, enterprise RAG, backend systems. 2–3h → 15–20min merchant due-diligence.",
+    "Truong Viet Hung — AI Engineer. Final-year Data Science @ Swinburne. Multi-agent automation, enterprise RAG, backend systems.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="noise bg-void text-zinc-100 antialiased">
+      <body className="noise bg-void text-zinc-900 antialiased">
         <IntroLoader />
         <CustomCursor />
         <Navbar />
