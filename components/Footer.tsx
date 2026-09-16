@@ -5,7 +5,7 @@ import { profile, nav } from "@/lib/data";
 export default function Footer() {
   return (
     <footer className="border-t border-zinc-200 mt-20 bg-zinc-50">
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-8 py-12 grid md:grid-cols-[1.4fr_1fr_1fr] gap-8">
+      <div className="mx-auto w-full px-6 lg:px-10 xl:px-14 py-12 grid md:grid-cols-[1.4fr_1fr_1fr] gap-8">
         <div>
           <p className="font-mono text-xs tracking-[0.2em] text-neon font-bold">TRUONG VIET HUNG</p>
           <p className="font-black text-lg mt-1 text-zinc-900">{profile.name} — {profile.role}</p>

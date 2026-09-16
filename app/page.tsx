@@ -28,7 +28,7 @@ export default function Home() {
           <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#fcfcfc] to-transparent" />
         </div>
 
-        <div className="relative mx-auto max-w-[1440px] px-6 lg:px-8 py-16 md:py-24 text-center">
+        <div className="relative w-full px-6 lg:px-10 xl:px-14 py-16 md:py-24 text-center">
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} className="inline-flex items-center gap-2 rounded-full bg-white border border-zinc-200 shadow-sm px-4 py-1.5 text-xs font-mono tracking-widest text-zinc-600">
             <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" /> PORTFOLIO 2026 — HCMC — OPEN TO COLLABORATION
           </motion.div>
@@ -66,7 +66,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1440px] px-6 lg:px-8 -mt-6">
+      <section className="w-full px-6 lg:px-10 xl:px-14 -mt-6">
         <motion.div className="grid grid-cols-2 lg:grid-cols-4 gap-4" initial="hidden" whileInView="show" viewport={{ once: true }} variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}>
           {profile.hero_metrics.map((m) => (
             <motion.div key={m.label} variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const } } }}>
@@ -79,7 +79,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section className="mx-auto max-w-[1440px] px-6 lg:px-8 py-16 md:py-20">
+      <section className="w-full px-6 lg:px-10 xl:px-14 py-16 md:py-20">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="font-mono text-[11px] tracking-[0.3em] font-bold text-zinc-400">FLAGSHIP — PAYOO</p>
@@ -90,8 +90,8 @@ export default function Home() {
         </div>
 
         <div className="mt-8 grid lg:grid-cols-12 gap-5">
-          <Reveal>
-            <div className="lg:col-span-4 rounded-[28px] bg-zinc-900 text-white p-8 relative overflow-hidden h-full">
+          <Reveal className="lg:col-span-4 h-full">
+            <div className="rounded-[28px] bg-zinc-900 text-white p-8 relative overflow-hidden h-full">
               <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-gradient-to-br from-neon/30 via-violet2/20 to-magenta/20 blur-2xl" />
               <p className="font-mono text-[11px] tracking-[0.2em] text-zinc-400">IMPACT</p>
               <p className="text-5xl font-black mt-3 tracking-tight">~8×</p>
@@ -101,8 +101,8 @@ export default function Home() {
               </div>
             </div>
           </Reveal>
-          <Reveal delay={0.08}>
-            <div className="lg:col-span-8 rounded-[28px] bg-white border border-zinc-200 p-7 md:p-8 shadow-sm h-full">
+          <Reveal delay={0.08} className="lg:col-span-8 h-full">
+            <div className="rounded-[28px] bg-white border border-zinc-200 p-7 md:p-8 shadow-sm h-full">
               <p className="font-mono text-[11px] tracking-[0.2em] text-zinc-500">SYSTEM ARCHITECTURE</p>
               <div className="mt-4"><Pipeline steps={projects[0].architecture} /></div>
               <div className="mt-6 grid sm:grid-cols-3 gap-4">
@@ -134,7 +134,7 @@ export default function Home() {
       </section>
 
       <section className="bg-zinc-900 text-white py-14 md:py-18">
-        <div className="mx-auto max-w-[1440px] px-6 lg:px-8">
+        <div className="w-full px-6 lg:px-10 xl:px-14">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <p className="font-mono text-[11px] tracking-[0.3em] text-zinc-500">SELECTED SYSTEMS</p>
@@ -166,7 +166,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1440px] px-6 lg:px-8 py-16">
+      <section className="w-full px-6 lg:px-10 xl:px-14 py-16">
         <SectionHeading kicker="Production stack" title="Backend-grade AI engineering" action={<Link href="/skills" className="text-sm font-semibold text-zinc-900 hover:underline inline-flex items-center gap-1">Full matrix <ArrowUpRight size={14} /></Link>} />
         <div className="mt-8 grid md:grid-cols-3 gap-5">
           {[
@@ -201,7 +201,7 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section className="mx-auto max-w-[1440px] px-6 lg:px-8 pb-10">
+      <section className="w-full px-6 lg:px-10 xl:px-14 pb-10">
         <Reveal>
           <div className="rounded-[32px] bg-zinc-900 p-8 md:p-12 text-center relative overflow-hidden">
             <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-gradient-to-br from-neon/20 via-violet2/15 to-magenta/15 blur-2xl" />

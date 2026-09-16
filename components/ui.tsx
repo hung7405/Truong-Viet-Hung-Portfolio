@@ -2,9 +2,10 @@
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
-export function Reveal({ children, delay = 0 }: { children: ReactNode; delay?: number }) {
+export function Reveal({ children, delay = 0, className = "" }: { children: ReactNode; delay?: number; className?: string }) {
   return (
     <motion.div
+      className={className}
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
@@ -32,24 +33,6 @@ export function SectionHeading({ kicker, title, desc, action }: { kicker: string
   );
 }
 
-export function Marquee({ items }: { items: string[] }) {
-  const row = [...items, ...items, ...items];
-  return (
-    <div className="relative overflow-hidden border-y border-zinc-200 bg-zinc-50 py-6 md:py-7">
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 md:w-40 bg-gradient-to-r from-zinc-50 to-transparent z-10" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 md:w-40 bg-gradient-to-l from-zinc-50 to-transparent z-10" />
-      <div className="flex gap-10 md:gap-14 w-max animate-marquee whitespace-nowrap font-mono text-sm md:text-base font-semibold tracking-widest uppercase text-zinc-900 [animation-duration:42s] hover:[animation-play-state:paused]">
-        {row.map((t, i) => (
-          <span key={i} className="flex items-center gap-10 md:gap-14">
-            <span className="grid h-7 w-7 place-items-center rounded-full bg-white border border-zinc-200 text-neon text-xs shadow-sm">✦</span>
-            <span>{t}</span>
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export function TechBadge({ t }: { t: string }) {
   return <span className="text-[11px] font-mono bg-white border border-zinc-200 rounded-full px-3 py-1 text-zinc-700 shadow-sm">{t}</span>;
 }
@@ -68,13 +51,15 @@ export function MetricCard({ value, label, delay = 0 }: { value: string; label: 
 
 export function Pipeline({ steps }: { steps: string[] }) {
   return (
-    <div className="flex flex-wrap items-center gap-2">
-      {steps.map((s, i) => (
-        <span key={s} className="flex items-center gap-2">
-          <span className="text-[11px] font-mono glass rounded-xl px-3.5 py-2 border-zinc-200 text-zinc-700">{s}</span>
-          {i < steps.length - 1 && <span className="text-neon text-xs">→</span>}
-        </span>
-      ))}
+    <div className="overflow-x-auto -mx-1 px-1 pb-1">
+      <div className="flex items-center gap-2 min-w-max">
+        {steps.map((s, i) => (
+          <span key={s} className="flex items-center gap-2 shrink-0">
+            <span className="text-[11px] font-mono bg-white border border-zinc-200 rounded-xl px-3.5 py-2.5 text-zinc-700 shadow-sm whitespace-nowrap leading-tight text-center max-w-[160px]">{s}</span>
+            {i < steps.length - 1 && <span className="text-neon text-sm shrink-0">→</span>}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }

@@ -10,7 +10,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   return (
     <header className="fixed top-0 inset-x-0 z-50">
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-8">
+      <div className="mx-auto w-full px-6 lg:px-10 xl:px-14">
         <div className="glass mt-4 rounded-2xl px-5 py-3.5 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-neon via-violet2 to-magenta text-white">
