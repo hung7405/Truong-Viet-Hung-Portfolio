@@ -3,7 +3,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Download, Github, Cpu, Database, Cloud, Bot, FileSearch, Megaphone } from "lucide-react";
 import { profile, projects, experience, education } from "@/lib/data";
-import { Reveal, SectionHeading, Marquee, MetricCard, TechBadge, Pipeline } from "@/components/ui";
+import { Reveal, SectionHeading, MetricCard, TechBadge, Pipeline } from "@/components/ui";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import Hero3D from "@/components/Hero3D";
 
@@ -113,8 +113,6 @@ export default function Home() {
           ))}
         </motion.div>
       </section>
-
-      <Marquee items={["Agentic AI", "Enterprise RAG", "FastAPI", "pgvector/HNSW", "Playwright automation", "PostgreSQL + Redis", "Docker + AWS EC2", "LangChain"]} />
 
       <section className="mx-auto max-w-[1440px] px-6 lg:px-8 py-16">
         <SectionHeading
