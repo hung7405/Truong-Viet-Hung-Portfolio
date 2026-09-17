@@ -1,11 +1,13 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Download, Github, Cpu, Database, Cloud, Bot, FileSearch, Megaphone } from "lucide-react";
 import { profile, projects, experience, education } from "@/lib/data";
 import { Reveal, SectionHeading, TechBadge, Pipeline } from "@/components/ui";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import Hero3D from "@/components/Hero3D";
+const Hero3D = dynamic(() => import("@/components/Hero3D"), { ssr: false, loading: () => <div className="h-[520px] md:h-[600px] lg:h-[620px] grid place-items-center rounded-[32px] bg-zinc-50 border border-zinc-200 font-mono text-xs text-zinc-400">loading 3D…</div> });
 
 const initiatives = [
   { icon: Bot, t: "Multi-agent merchant intelligence", d: "Parallel agents for website · registry · social · trust. Async FastAPI + Redis/ARQ." },
@@ -36,7 +38,7 @@ export default function Home() {
               <Link href="/projects" className="rounded-full bg-zinc-900 text-white px-7 py-3.5 text-sm font-bold inline-flex items-center gap-2 hover:bg-black transition shadow-[0_8px_24px_-8px_rgba(0,0,0,0.3)]">
                 View systems <ArrowRight size={16} />
               </Link>
-              <a href={profile.github} className="rounded-full bg-white border border-zinc-200 px-6 py-3.5 text-sm font-semibold inline-flex items-center gap-2 hover:border-zinc-300 transition shadow-sm text-zinc-800">
+              <a href={profile.github} target="_blank" rel="noopener noreferrer" className="rounded-full bg-white border border-zinc-200 px-6 py-3.5 text-sm font-semibold inline-flex items-center gap-2 hover:border-zinc-300 transition shadow-sm text-zinc-800">
                 <Github size={16} /> hung7405
               </a>
               <Link href="/cv" className="rounded-full bg-white border border-zinc-200 px-6 py-3.5 text-sm font-semibold inline-flex items-center gap-2 hover:border-zinc-300 transition shadow-sm text-zinc-800">
@@ -78,8 +80,7 @@ export default function Home() {
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse" />
           </div>
           <div className="rounded-2xl bg-zinc-900 text-white p-5 flex items-center justify-between">
-            <div><p className="font-mono text-xs tracking-widest text-zinc-400">LOCATION</p><p className="text-sm font-bold mt-1">Ho Chi Minh City</p></div>
-            <span className="text-lg">🇻🇳</span>
+            <div><p className="font-mono text-xs tracking-widest text-zinc-400">LOCATION</p><p className="text-sm font-bold mt-1">Ho Chi Minh City, VN</p></div>
           </div>
           <div className="rounded-2xl bg-white border border-zinc-200 p-5">
             <p className="font-mono text-xs font-bold tracking-widest text-zinc-500">ENGLISH</p><p className="text-sm font-bold text-zinc-900 mt-1">IELTS 6.5 · DET 130</p>
@@ -156,7 +157,7 @@ export default function Home() {
               <Reveal key={p.slug} delay={(i % 3) * 0.07}>
                 <Link href={`/projects/${p.slug}`} className="group rounded-[28px] overflow-hidden bg-white text-zinc-900 block h-full hover:-translate-y-1 transition-transform duration-500">
                   <div className="relative aspect-[16/10] overflow-hidden bg-zinc-100">
-                    <img src={p.image} alt={p.title} className="h-full w-full object-cover group-hover:scale-[1.03] transition duration-700" loading="lazy" />
+                    <Image src={p.image} alt={p.title} fill sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw" className="object-cover group-hover:scale-[1.03] transition duration-700" loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
                     <span className="absolute top-4 left-4 text-[10px] font-mono font-bold uppercase bg-white/90 backdrop-blur px-2.5 py-1 rounded-full border border-zinc-200">{p.status}</span>
                     <span className="absolute bottom-4 left-4 right-4 font-mono text-[11px] font-bold text-white">◈ {p.metric}</span>
