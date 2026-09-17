@@ -11,8 +11,8 @@ export default function Footer() {
           <p className="font-black text-lg mt-1 text-zinc-900">{profile.name} — {profile.role}</p>
           <p className="text-zinc-600 text-sm mt-2 leading-relaxed">{profile.tagline}</p>
           <div className="flex gap-2.5 mt-4">
-            <a href={profile.github} aria-label="GitHub" className="glass p-2.5 rounded-xl hover:border-neon/30 transition text-zinc-700"><Github size={17} /></a>
-            <a href={profile.linkedin} aria-label="LinkedIn" className="glass p-2.5 rounded-xl hover:border-neon/30 transition text-zinc-700"><Linkedin size={17} /></a>
+            <a href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="glass p-2.5 rounded-xl hover:border-neon/30 transition text-zinc-700"><Github size={17} /></a>
+            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="glass p-2.5 rounded-xl hover:border-neon/30 transition text-zinc-700"><Linkedin size={17} /></a>
             <a href={`mailto:${profile.email}`} aria-label="Email" className="glass p-2.5 rounded-xl hover:border-neon/30 transition text-zinc-700"><Mail size={17} /></a>
           </div>
         </div>

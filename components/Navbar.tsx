@@ -32,7 +32,7 @@ export default function Navbar() {
               Hire Me
             </a>
           </nav>
-          <button className="md:hidden p-2 text-zinc-700" onClick={() => setOpen(!open)} aria-label="menu">{open ? <X size={20}/> : <Menu size={20}/>}</button>
+          <button className="md:hidden p-2 text-zinc-700" onClick={() => setOpen(!open)} aria-label="menu" aria-expanded={open}>{open ? <X size={20}/> : <Menu size={20}/>}</button>
         </div>
         {open && (
           <div className="glass md:hidden mt-2 rounded-2xl p-2">
