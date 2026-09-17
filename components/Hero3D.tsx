@@ -190,14 +190,37 @@ export default function Hero3D() {
       if (!mount) return;
       camera.aspect = mount.clientWidth / mount.clientHeight;
       camera.updateProjectionMatrix();
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.6));
       renderer.setSize(mount.clientWidth, mount.clientHeight);
     };
     window.addEventListener("resize", onResize);
 
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let visible = true;
+    const io = new IntersectionObserver((entries) => {
+      visible = entries[0]?.isIntersecting ?? true;
+    }, { threshold: 0 });
+    io.observe(mount);
+    const onVis = () => {
+      if (document.hidden) cancelAnimationFrame(raf);
+      else { last = performance.now(); raf = requestAnimationFrame(tick); }
+    };
+    document.addEventListener("visibilitychange", onVis);
+
     const clock = new THREE.Clock();
     let raf = 0;
+    let last = performance.now();
     const tick = () => {
+      raf = requestAnimationFrame(tick);
+      const now = performance.now();
+      if (now - last < 32) return; // ~30fps cap for perf
+      last = now;
+      if (!visible || document.hidden) return;
       const t = clock.getElapsedTime();
+      if (reduced) {
+        renderer.render(scene, camera);
+        return;
+      }
       robot.position.y = Math.sin(t * 0.75) * 0.14;
       robot.rotation.y = Math.sin(t * 0.28) * 0.18 + mouse.x * 0.22;
       robot.rotation.x = mouse.y * 0.08;
@@ -217,13 +240,14 @@ export default function Hero3D() {
       field.rotation.y = t * 0.008;
       rimCyan.intensity = 18 + Math.sin(t * 1.4) * 4;
       renderer.render(scene, camera);
-      raf = requestAnimationFrame(tick);
     };
     tick();
     setReady(true);
 
     return () => {
       cancelAnimationFrame(raf);
+      io.disconnect();
+      document.removeEventListener("visibilitychange", onVis);
       window.removeEventListener("mousemove", onMouse);
       window.removeEventListener("resize", onResize);
       scene.traverse((o) => {
@@ -239,7 +263,7 @@ export default function Hero3D() {
   }, []);
 
   return (
-    <div className="h-[520px] md:h-[600px] lg:h-[620px] w-full relative overflow-hidden rounded-[32px] bg-gradient-to-b from-white via-zinc-50 to-white border border-zinc-200 shadow-[0_24px_80px_-24px_rgba(0,0,0,0.12)]">
+    <div role="img" aria-label="Interactive 3D AI robot companion" className="h-[520px] md:h-[600px] lg:h-[620px] w-full relative overflow-hidden rounded-[32px] bg-gradient-to-b from-white via-zinc-50 to-white border border-zinc-200 shadow-[0_24px_80px_-24px_rgba(0,0,0,0.12)]">
       {!ready && <div className="absolute inset-0 grid place-items-center font-mono text-xs text-zinc-400">assembling robot…</div>}
       <div ref={mountRef} className="absolute inset-0 [&>canvas]:h-full [&>canvas]:w-full" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white via-white/40 to-transparent" />
