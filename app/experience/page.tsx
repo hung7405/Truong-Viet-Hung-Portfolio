@@ -11,17 +11,17 @@ export default function ExperiencePage() {
         desc="Apr 2026 — Present · Ho Chi Minh City. No freelance filler — one real internship, three real initiatives." />
       <div className="mt-8">
         <Reveal>
-          <div className="glass rounded-2xl p-6 md:p-8 relative overflow-hidden">
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neon/70 to-transparent" />
+          <div className="rounded-2xl bg-white border border-zinc-200 shadow-sm p-6 md:p-8 relative overflow-hidden">
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-zinc-300 to-transparent" />
             <div className="flex flex-wrap items-center gap-2">
-              <h3 className="font-bold text-xl">{e.role}</h3>
-              <span className="text-[10px] font-mono font-bold bg-emerald-400/15 text-emerald-300 px-2.5 py-1 rounded-full">● Current</span>
+              <h3 className="font-bold text-xl text-zinc-900">{e.role}</h3>
+              <span className="text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-700 border border-emerald-500/25 px-2.5 py-1 rounded-full">● Current</span>
             </div>
-            <p className="text-sm text-neon mt-1 font-mono">{e.company} · {e.location}</p>
+            <p className="text-sm text-zinc-900 mt-1 font-mono font-semibold">{e.company} · {e.location}</p>
             <p className="font-mono text-[11px] text-zinc-500 mt-1">{e.period}</p>
-            <p className="text-sm text-zinc-300 mt-4 leading-relaxed">{e.summary}</p>
-            <ul className="mt-4 space-y-2.5 text-sm text-zinc-300">
-              {e.bullets.map((b) => <li key={b} className="flex gap-2"><span className="text-neon mt-0.5">▸</span><span>{b}</span></li>)}
+            <p className="text-sm text-zinc-600 mt-4 leading-relaxed">{e.summary}</p>
+            <ul className="mt-4 space-y-2.5 text-sm text-zinc-700">
+              {e.bullets.map((b) => <li key={b} className="flex gap-2"><span className="text-neon font-bold mt-0.5">▸</span><span>{b}</span></li>)}
             </ul>
             <div className="flex flex-wrap gap-1.5 mt-5">{e.tech.map((t) => <TechBadge key={t} t={t} />)}</div>
           </div>
@@ -33,9 +33,9 @@ export default function ExperiencePage() {
             ["03 · SME acquisition", "FB Ads + LangChain content agents + lead automation."],
           ].map(([t, d], i) => (
             <Reveal key={t} delay={i * 0.07}>
-              <div className="glass card-hover rounded-2xl p-5">
-                <p className="font-mono text-xs text-neon">{t}</p>
-                <p className="text-[13px] text-zinc-300 mt-2 leading-relaxed">{d}</p>
+              <div className="rounded-2xl bg-white border border-zinc-200 shadow-sm p-5 hover:shadow-md transition-shadow">
+                <p className="font-mono text-xs font-bold text-zinc-900">{t}</p>
+                <p className="text-[13px] text-zinc-600 mt-2 leading-relaxed">{d}</p>
               </div>
             </Reveal>
           ))}
